@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.default {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header, nav, main, footer {
+    padding: 20px;
+}
+
+header, footer {
+    background-color: #f2f2f2;
+}
+
+nav {
+    background-color: #eaeaea;
+}
+
+main {
+    flex-grow: 1;
+    background-color: #ffffff;
+}

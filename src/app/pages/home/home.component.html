@@ -1,0 +1,66 @@
+<!-- Conteúdo da página -->
+<main>
+<section class="container">
+    <div class="">
+      <h1>Conteúdos de Algoritmo</h1>
+
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-center">
+          <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+              <input type="text" class="form-control" id="pesquisarInput" placeholder="Pesquisar">
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="categoria">Filtrar por Categoria:</label>
+            <select class="form-control" id="categoria">
+              <option value="">Todas</option>
+              <option value="categoria1">Categoria 1</option>
+              <option value="categoria2">Categoria 2</option>
+              <option value="categoria3">Categoria 3</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" id="filtrarBtn">Filtrar</button>
+        </div>
+      </div>
+      <table class="table" id="tabelaConteudos">
+        <thead>
+          <tr>
+            <th scope="col">Título</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Categoria</th>
+          </tr>
+          <tr id="filtroRow">
+            <th scope="col"><input type="text" id="filtroTitulo" placeholder="Filtrar por título"></th>
+            <th scope="col"><input type="text" id="filtroDescricao" placeholder="Filtrar por descrição"></th>
+            <th scope="col"><input type="text" id="filtroCategoria" placeholder="Filtrar por categoria"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Item 1</td>
+            <td>Descrição do Item 1</td>
+            <td>Categoria 1</td>
+          </tr>
+          <tr>
+            <td>Item 2</td>
+            <td>Descrição do Item 2</td>
+            <td>Categoria 2</td>
+          </tr>
+          <tr>
+            <td>Item 3</td>
+            <td>Descrição do Item 3</td>
+            <td>Categoria 1</td>
+          </tr>
+          <tr>
+            <td>Item 4</td>
+            <td>Descrição do Item 4</td>
+            <td>Categoria 3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</section>
+</main>
