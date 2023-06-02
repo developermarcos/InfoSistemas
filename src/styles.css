@@ -1,3 +1,9 @@
+:root{
+    --bg-primary: #f2f2f2;
+    --bg-secondary: #1d1d1f;
+    --color-primary: #1d1d1f;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -15,7 +21,8 @@ header, nav, main, footer {
 }
 
 header, footer {
-    background-color: #f2f2f2;
+    background-color: var(--bg-secondary);
+    color: azure;
 }
 
 nav {
@@ -25,4 +32,8 @@ nav {
 main {
     flex-grow: 1;
     background-color: #ffffff;
+}
+button{
+    background: none;
+    border: none;
 }

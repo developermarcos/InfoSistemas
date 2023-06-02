@@ -6,13 +6,21 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './share/pages/header/header.component';
 import { FooterComponent } from './share/pages/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { NavComponent } from './share/pages/nav/nav.component';
+import { ConteudoComponent } from './pages/conteudo/conteudo.component';
+import { CadastrarComponent } from './pages/cadastrar/cadastrar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    NavComponent,
+    ConteudoComponent,
+    CadastrarComponent
   ],
   imports: [
     BrowserModule,
