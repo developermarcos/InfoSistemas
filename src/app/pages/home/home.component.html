@@ -11,31 +11,16 @@
       <table class="table" id="tabelaConteudos">
         <thead>
           <tr>
-            <th scope="col">Título <input class="ml-1" type="text" id="filtroTitulo" placeholder="Filtrar por título"></th>
-            <th scope="col">Matéria <input class="ml-1" type="text" id="filtroDescricao" placeholder="Filtrar por descrição"></th>
+            <th scope="col">Título <input class="ml-1" type="text" id="filtroTitulo" placeholder="Filtrar por título" [(ngModel)]="titulo" (keyup)="botaoPressionado($event)"></th>
+            <th scope="col">Matéria <input class="ml-1" type="text" id="filtroDescricao" placeholder="Filtrar por descrição" [(ngModel)]="materia" (keyup)="botaoPressionado($event)"></th>
             <th scope="col">Ação</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Item 1</td>
-            <td>Matéria 1</td>
-            <td><button type="button" class="btn btn-warning btn-sm" [routerLink]="['/conteudo']">Visualizar</button></td>
-          </tr>
-          <tr>
-            <td>Item 2</td>
-            <td>Matéria 2</td>
-            <td><button type="button" class="btn btn-warning btn-sm">Visualizar</button></td>
-          </tr>
-          <tr>
-            <td>Item 3</td>
-            <td>Matéria 1</td>
-            <td><button type="button" class="btn btn-warning btn-sm">Visualizar</button></td>
-          </tr>
-          <tr>
-            <td>Item 4</td>
-            <td>Matéria 3</td>
-            <td><button type="button" class="btn btn-warning btn-sm">Visualizar</button></td>
+          <tr *ngFor="let conteudo of this.conteudos">
+            <td>{{conteudo.titulo}}</td>
+            <td>{{conteudo.materia}}</td>
+            <td><button type="button" class="btn btn-warning btn-sm" (click)="Visualizar(conteudo.id)">Visualizar</button></td>
           </tr>
         </tbody>
       </table>

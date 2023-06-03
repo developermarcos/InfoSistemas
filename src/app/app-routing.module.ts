@@ -8,7 +8,7 @@ import { CadastrarComponent } from './pages/cadastrar/cadastrar.component';
 const routes: Routes = [
   {path: '', component:HomeComponent},
   {path: 'login', component:LoginComponent},
-  {path: 'conteudo', component:ConteudoComponent},
+  {path: 'conteudo/:id', component:ConteudoComponent},
   {path: 'cadastrar', component:CadastrarComponent}
 ];
 
