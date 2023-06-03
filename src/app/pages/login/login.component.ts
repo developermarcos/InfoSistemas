@@ -44,15 +44,12 @@ export class LoginComponent implements OnInit {
   get senha(){
     return this.form.get("senha");
   }
-  get mensagemErro(){
-    return this.auth.erro;
-  }
   public async gravar(nome : AbstractControl<any, any> | null, senha : AbstractControl<any, any> | null){
     try{
       
-      this.auth.EmailSignIn(nome?.value, senha?.value);
+      this.auth.login(nome?.value, senha?.value);
 
-      if(this.auth.user){
+      if(this.auth.estaLogado){
         this.location.back();
       }
       

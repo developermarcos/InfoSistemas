@@ -1,37 +1,54 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/compat/auth'
 import firebase from 'firebase/compat/app';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  user: any;
-  erro: any;
-  constructor(public auth: AngularFireAuth) { }
+  public usuarioLogado : Observable<firebase.User | null>;
 
-  async EmailSignIn(email: string, senha: string){
-      
-      const credential = await this.auth.signInWithEmailAndPassword(email,senha).then((success) => {
-        this.user = success.user;
-      })
-      .catch((error) => {
-        this.erro = 'Erro de usuário ou senha';
-      });
-      
+  constructor(private auth: AngularFireAuth) {
+    this.usuarioLogado = auth.authState;
   }
-  async googleSignIn(){
-    try {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      const credential = await this.auth.signInWithPopup(provider);
-      this.user = credential.user;
-    } catch (error) {
-      this.erro = 'Erro de usuário ou senha';   
-    }
+
+  get estaLogado() : boolean{
+    if (this.usuarioLogado !== null)
+      return true;
+    
+    return false;    
   }
-  async signOut(){
-    await this.auth.signOut();
-    this.user = null;
+
+  public cadastrar(email : string, senha : string) : Promise<firebase.auth.UserCredential>{
+    return this.auth.createUserWithEmailAndPassword(email, senha);
+  }
+
+  public login(email: string, senha : string) : Promise<firebase.auth.UserCredential>{
+    return this.auth.signInWithEmailAndPassword(email,senha);
+  }
+
+  public resetarSenha(email : string) : Promise<void>{
+    return this.auth.sendPasswordResetEmail(email);
+  }
+  public logout() : Promise<void>{
+    return this.auth.signOut();
+  }
+
+  public getUsuario() : Promise<firebase.User | null>{
+    return this.auth.currentUser;
+  }
+
+  public obterEmailUsuarioLogado() : string | null{
+    this.auth.currentUser.then(x =>{
+      return x?.email;
+    });
+    
+    return null;
+  }
+
+  public atualizarUsuario(usuario : firebase.User | null){
+    return this.auth.updateCurrentUser(usuario);
   }
 }
