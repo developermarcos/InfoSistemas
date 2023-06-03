@@ -48,7 +48,16 @@ Apache-2.0
 @firebase/app
 Apache-2.0
 
+@firebase/app-check
+Apache-2.0
+
 @firebase/app-compat
+Apache-2.0
+
+@firebase/auth
+Apache-2.0
+
+@firebase/auth-compat
 Apache-2.0
 
 @firebase/component
@@ -73,7 +82,11 @@ firebase/analytics
 
 firebase/app
 
+firebase/app-check
+
 firebase/compat/app
+
+firebase/compat/auth
 
 firebase/messaging
 
