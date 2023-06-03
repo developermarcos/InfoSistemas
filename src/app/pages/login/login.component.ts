@@ -1,10 +1,65 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { AuthService } from 'src/app/share/services/auth/auth.service';
+import { Location } from '@angular/common';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
 
+export class LoginComponent implements OnInit {
+  public form : FormGroup;
+  public mostrarErros : boolean = false;
+  
+  constructor(
+    private fb : FormBuilder,
+    private auth : AuthService,
+    private location: Location
+  ) { }
+
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      nome : new FormControl(
+        "", 
+        [
+          Validators.required,
+          Validators.minLength(3),
+        ]
+      ),
+      senha : new FormControl(
+        "", 
+        [
+          Validators.required,
+        ]
+      )
+    });
+  }
+
+  get nome(){
+    return this.form.get("nome");
+  }
+
+  get senha(){
+    return this.form.get("senha");
+  }
+  get mensagemErro(){
+    return this.auth.erro;
+  }
+  public async gravar(nome : AbstractControl<any, any> | null, senha : AbstractControl<any, any> | null){
+    try{
+      
+      this.auth.EmailSignIn(nome?.value, senha?.value);
+
+      if(this.auth.user){
+        this.location.back();
+      }
+      
+      this.mostrarErros = true;
+
+    }catch(error){
+      
+    }
+  }
 }

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "forum-app-7a71d": {
+      "hosting": {
+        "InfoSistemas": [
+          "forum-app-7a71d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "forum-app-7a71d"
+  }
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/share/services/auth/auth.service';
 
 @Component({
   selector: 'app-cadastrar',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./cadastrar.component.css']
 })
 export class CadastrarComponent {
+  email = '' as string;
+  password = '' as string;
 
+  constructor(public auth : AuthService) {
+  }
 }

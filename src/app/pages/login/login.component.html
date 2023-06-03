@@ -4,19 +4,49 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title text-center">Login</h3>
-                    <form>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Digite seu email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Senha</label>
-                            <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-success" [routerLink]="['/']">Entrar</button>
-                        </div>
-                    </form>
+
+                    <div class="alert alert-danger" role="alert" *ngIf="this.mostrarErros">
+                        {{this.mensagemErro}}
+                      </div>
+                    <form [formGroup]="form">
+                        <div class="modal-body">
+                            <div class="form-group row position-relative">
+                              <label for="nome" class=" col-form-label">Nome</label>
+                              <div class="">
+                                <input
+                                [ngClass]="(nome?.touched && nome?.invalid)? 'is-invalid' : ''" 
+                                tabindex="1" 
+                                formControlName="nome"
+                                type="text" 
+                                class="form-control" 
+                                placeholder="Digite o nome do departamento">
+                              </div>
+                              <div *ngIf="nome?.touched && nome?.invalid" class="col-sm-10 offset-sm-2 invalid-tooltip d-block">
+                                <span *ngIf="nome?.errors?.['required']">Nome obrigatório.</span>
+                                <span *ngIf="nome?.errors?.['minlength']">Nome deve conter no mínino 3 caracteres.</span>
+                              </div>
+                            </div>
+                            <div class="form-group row position-relative">
+                              <label for="senha" class=" col-form-label">Senha</label>
+                              <div class="">
+                                <input 
+                                [ngClass]="(senha?.touched && senha?.invalid)? 'is-invalid' : ''" 
+                                mask="(00) 0000-0000||(00) 0 0000-0000"
+                                tabindex="2" 
+                                formControlName="senha"
+                                type="text" 
+                                class="form-control" 
+                                placeholder="Digite o senha do departamento"/>
+                              </div>
+                              <div *ngIf="senha?.touched && senha?.invalid" class="col-sm-10 offset-sm-2 invalid-tooltip d-block">
+                                <span *ngIf="senha?.errors?.['required']">Senha obrigatório.</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" (click)="gravar(this.nome, this.senha)">Gravar</button>
+                          </div>
+                        </form>
                 </div>
             </div>
         </div>
