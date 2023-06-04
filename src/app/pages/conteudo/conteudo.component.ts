@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Conteudo } from 'src/app/share/services/conteudo/conteudo.model';
-import { ConteudoService } from 'src/app/share/services/conteudo/conteudo.service';
+// import { Conteudo } from 'src/app/share/services/conteudo/conteudo.model';
+// import { ConteudoService } from 'src/app/share/services/conteudo/conteudo.service';
+import {Conteudo} from '../../share/services/conteudo/conteudo.model'
+import {ConteudoService} from '../../share/services/conteudo/conteudo.service'
 
 @Component({
   selector: 'app-conteudo',
