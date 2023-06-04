@@ -14,11 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 
-import { AuthService } from './share/services/auth/auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AngularFireModule } from '@angular/fire/compat';
-import { environment } from 'src/environments/environment.development';
 
 
 @NgModule({
@@ -37,10 +34,8 @@ import { environment } from 'src/environments/environment.development';
     AppRoutingModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    ReactiveFormsModule
   ],
-  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

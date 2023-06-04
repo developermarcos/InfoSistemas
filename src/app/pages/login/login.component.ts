@@ -1,5 +1,4 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { AuthService } from 'src/app/share/services/auth/auth.service';
 import { Location } from '@angular/common';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -15,7 +14,6 @@ export class LoginComponent implements OnInit {
   
   constructor(
     private fb : FormBuilder,
-    private auth : AuthService,
     private location: Location
   ) { }
 
@@ -47,11 +45,11 @@ export class LoginComponent implements OnInit {
   public async gravar(nome : AbstractControl<any, any> | null, senha : AbstractControl<any, any> | null){
     try{
       
-      this.auth.login(nome?.value, senha?.value);
+      // this.auth.login(nome?.value, senha?.value);
 
-      if(this.auth.estaLogado){
-        this.location.back();
-      }
+      // if(this.auth.estaLogado){
+      //   this.location.back();
+      // }
       
       this.mostrarErros = true;
 

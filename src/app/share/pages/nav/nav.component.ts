@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth/auth.service';
 import { Observable } from 'rxjs';
-import firebase from 'firebase/compat/app';
 
 @Component({
   selector: 'app-nav',
@@ -11,8 +9,7 @@ import firebase from 'firebase/compat/app';
 export class NavComponent implements OnInit {
 
   emailUsuario? : string | null;
-  public usuarioLogado : Observable<firebase.User | null>;
-  constructor(public auth : AuthService) {
+  constructor() {
     
   }
   ngOnInit(): void {
