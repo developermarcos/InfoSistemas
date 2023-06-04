@@ -1,5 +1,17 @@
-header button{
+header button logo{
     background-color: transparent;
     border: none;
     color: azure;
+
 }
+.logo {
+    width: 103px;
+    height: auto; 
+  }
+
+.texto-header{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;  
+    align-items: center;
+ }

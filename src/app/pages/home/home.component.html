@@ -17,10 +17,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let conteudo of this.conteudos">
+          <tr class="box" *ngFor="let conteudo of this.conteudos">
             <td>{{conteudo.titulo}}</td>
             <td>{{conteudo.materia}}</td>
-            <td><button type="button" class="btn btn-warning btn-sm" (click)="Visualizar(conteudo.id)">Visualizar</button></td>
+            <td><button type="button" class="btn btn-warning btn-sm custom-button" (click)="Visualizar(conteudo.id)">Visualizar</button></td>
           </tr>
         </tbody>
       </table>
